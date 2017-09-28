@@ -1,6 +1,6 @@
 = Todoster
 
-A simple todo app with a mobile-fist design & built using Rspec for Test Driven Development.
+A simple todo app with dynamic reponsiviness and built with Rspec for Test Driven Development.
 
 View the {Live Site}[https://todoster-edwin-f.herokuapp.com/].
 
