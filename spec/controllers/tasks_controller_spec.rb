@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TasksController, type: :controller do
   describe "tasks#index" do
-    it "should list the tasks in the database" do
+    it "should list the tasks in the database in order" do
       task1 = FactoryGirl.create(:task)
       task2 = FactoryGirl.create(:task)
       task1.update_attributes(title: "Something else")

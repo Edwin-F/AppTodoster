@@ -1,0 +1,42 @@
+= Todoster
+
+A simple todo app with a mobile-fist design & built using Rspec for Test Driven Development.
+
+View the {Live Site}[https://todoster-edwin-f.herokuapp.com/].
+
+
+Features:
+
+Built with Ruby on Rails and Javascript
+Uses jQuery and AJAX requests for quick page responsiveness
+
+= Install
+      
+=== System Requirements
+- Ruby `2.3.1` recommended
+- Rails 5.0.1
+- Postgres 9.2+
+ 
+=== Fork and bundle
+- Fork the project
+- Run bundle to install gems
+
+  <tt> bundle install </tt>   
+        
+=== Database setup
+
+Download and Install Postgres[https://www.postgresql.org/download/]
+
+- Create the databases:
+
+  <tt> rails db:create </tt>
+        
+- Run migrations to create tables:
+
+  <tt> rails db:migrate </tt>
+
+=== Run RSpec
+
+- Run the test suite by running the following command:
+
+  <tt> bundle exec rspec </tt>

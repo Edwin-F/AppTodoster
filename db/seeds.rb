@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#Task.where(title: 'default').first_or_create
+require 'csv'
+
+tasks = CSV.read(Rails.root.join "seed..csv")
+tasks.each.with_index do |row, index|
+  next row if index < 1
+  p row
+end
+
+
+#tasks = CSV.read(Rails.root.join "seed..csv", headers: true)
+#p tasks
+
+
