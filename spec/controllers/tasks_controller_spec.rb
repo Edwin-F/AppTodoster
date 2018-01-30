@@ -29,7 +29,7 @@ RSpec.describe TasksController, type: :controller do
 
   describe "task#create" do
     it "should allow new tasks to be created" do
-      post :create, task: {title: "Fix things"}
+      post :create, params: {task: {title: "Fix things"}}
       expect(response).to have_http_status(:success)
       response_value = ActiveSupport::JSON.decode(@response.body)
       expect(response_value['title']).to eq("Fix things")
@@ -40,7 +40,7 @@ RSpec.describe TasksController, type: :controller do
     it "should allow tasks to be destroyed" do
       task = FactoryGirl.create(:task, done: false)
       task.update_attributes(title: "Test1")
-      delete :destroy, task: {title: "Test1"}
+      delete :destroy, params: {id: task.id}
       expect(response).to have_http_status(:success)
       expect(Task.exists? task.id).to eq(false)
     end
