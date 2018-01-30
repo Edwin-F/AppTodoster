@@ -11,6 +11,8 @@ $(function() {
       checkedStatus +
       '><label>' +
       task.title +
+      "<button class='destroy' data-id='" + task.id + "'"+
+      "></button>"+
       '</label</div></li>';
 
       return liElement;
@@ -41,7 +43,8 @@ $(function() {
 
       } );
     }
-
+    
+    //index event
     $.get("/tasks").success( function( data ) {
       var htmlString = "";
 
@@ -54,7 +57,17 @@ $(function() {
 
       $('.toggle').change(toggleTask);
 
-
+      //delete event
+      $(document).on('click','.destroy', function(e){
+        e.preventDefault();
+        var taskId = $(e.target).data('id');
+        var liElement = $(e.target).parents('li');
+        $.ajax({
+          method: 'DELETE',
+          url: '/tasks/' + taskId
+        });
+        liElement.remove();
+      });
     });
 
   $('#new-form').submit(function(event) {
