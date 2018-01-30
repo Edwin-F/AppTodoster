@@ -35,4 +35,14 @@ RSpec.describe TasksController, type: :controller do
       expect(response_value['title']).to eq("Fix things")
     end
   end
+
+  describe "task#destroy" do
+    it "should allow tasks to be destroyed" do
+      task = FactoryGirl.create(:task, done: false)
+      task.update_attributes(title: "Test1")
+      delete :destroy, task: {title: "Test1"}
+      expect(response).to have_http_status(:success)
+      expect(Task.exists? task.id).to eq(false)
+    end
+  end
 end
